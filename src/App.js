@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import NotesApp from './components/Notes';
+import Main from './components/ToDo';
+import CalendarApp from './components/Calendar';
+import FavoriteLinks from './components/Favorites';
+import Header from './layout/Header';
+import Clip from './layout/clips';
+import {BrowserRouter ,Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css'
+import {Container,Col,Row} from 'react-bootstrap';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Container>
+         <Row>
+           <header className="App-header">
+             <Clip/>
+           </header>
+
+           <header className="App-header">
+             <Header/>
+           </header>
+         </Row>
+         <Row>
+         <Col className="col-12 col-md-6 col-lg-6">
+          <BrowserRouter>
+             <Route path='/' component={NotesApp}/>
+          </BrowserRouter>
+
+         </Col>
+
+         <Col className="col-12 col-md-6 col-lg-6">
+          <BrowserRouter>
+             <Route path='/' component={Main}/>
+          </BrowserRouter>
+         </Col>
+         </Row>
+         <Row>
+          <Col className="col-12 col-md-6 col-lg-6">
+            <BrowserRouter>
+              <Route path='/' component={FavoriteLinks}/>
+            </BrowserRouter>
+          </Col>
+
+          <Col className="col-12 col-md-6 col-lg-6">
+            <BrowserRouter>
+               <CalendarApp/>
+            </BrowserRouter>
+          </Col>
+         </Row>
+       </Container>
     </div>
   );
 }
