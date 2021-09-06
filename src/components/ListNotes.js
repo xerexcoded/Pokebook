@@ -3,8 +3,8 @@ import {NavLink} from 'react-router-dom'
 import moment from 'moment'
 class ListNotes extends Component {
    
-   renderFormattedDate(){
-       return moment(date).format('DD MM YYYY');
+   renderFormattedDate(date){
+       return moment(date).format('DD MMM YYYY');
 
    }
     render(){
@@ -14,7 +14,7 @@ class ListNotes extends Component {
         //if there are notes to list 
         const listItems = this.props.notes.map((note) =>
         
-        <Navlink activeClassName='active' to={`/note/${note.id}`}
+        <NavLink activeClassName='active' to={`/note/${note.id}`}
           className="list-group-item"
           key={note.id.toString()}
           onClick={this.props.viewNote.bind(this,note.id)}>
@@ -24,7 +24,7 @@ class ListNotes extends Component {
               <div className="font-weight-light font-italic small">
                 {this.renderFormattedDate(note.date)}
               </div>
-        </Navlink>
+        </NavLink>
         );
         return (<ul className="list-group">{listItems}</ul>);
     }   

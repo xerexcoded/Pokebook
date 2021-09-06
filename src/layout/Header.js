@@ -6,7 +6,7 @@ function Header(){
      <Container>
        <Row>
           <div className="Header">
-            <h1 className-"app-title">
+            <h1 className="app-title">
               <span className="pixels">pxn</span>
                 POKEBOOK
              <span className="pixels">cli</span>

@@ -30,9 +30,11 @@ class EditNotes extends React.Component{
     }
     //render a new date whenever there is a edit 
     renderFormattedDate(){
-        return 'Last edited:' + moment(this.props.note.date).format("DD MM YYYY [at] HH:mm");
+        return 'Last edited:' + moment(this.props.note.date).format("DD MMM YYYY [at] HH:mm");
     }
-    return(){
+  render(){
+    if(this.state.redirect || !this.props.note) { return <Redirect push to ="/"/>}
+    return(
         <div className="card">
             <div className="card-header">
                 <h4>{this.props.note.title}</h4>
@@ -49,8 +51,8 @@ class EditNotes extends React.Component{
         </div>
 
 
-    }
+    )
 }
-
+}
 
 export default EditNotes;

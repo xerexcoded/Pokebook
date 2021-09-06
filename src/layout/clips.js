@@ -8,7 +8,7 @@ function Clips() {
       <Row>
         <div className="clip">
            <div className="clip">
-             <img src="stylestuff/images/clip.png" alt="teehee"/>
+             <img src="stylestuff/images/clip.png" alt=""/>
            </div>
         </div>
       </Row>
